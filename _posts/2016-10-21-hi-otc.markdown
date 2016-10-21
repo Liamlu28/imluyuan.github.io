@@ -1,0 +1,28 @@
+---
+layout:     post
+title:      "Hi Otc"
+subtitle:   " \"Hello World, Hello Otc\""
+date:       2015-10-21 12:45:20
+author:     "Luyuan"
+header-img: "img/post-bg-2015.jpg"
+catalog: true
+tags:
+    - 生活
+---
+
+> “Yeah It's on. ”
+
+---
+## 前言
+陆源的博客~~
+
+
+## 正文
+此博客的由来，某天看到廖同学博客，心血来潮，一言不合立即动手来一套，与之前在aws上搭建的wordpress完全是两回事儿。昨天下午花了1个小时，修改各种页面和配置，终于把博客的大概框架折腾了出来，计划每周更新两次到三次。
+
+
+## 后续
+计划每周更新两次
+---
+
+—— Luyuan 后记于 2016.10.21

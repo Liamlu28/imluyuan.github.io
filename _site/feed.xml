@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>To be or not to be</title>
+    <description>爱笑的逗比</description>
+    <link>http://hieradata.com/</link>
+    <atom:link href="http://hieradata.com/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Fri, 21 Oct 2016 13:27:45 +0800</pubDate>
+    <lastBuildDate>Fri, 21 Oct 2016 13:27:45 +0800</lastBuildDate>
+    <generator>Jekyll v3.2.1</generator>
+    
+      <item>
+        <title>Hi Otc</title>
+        <description>&lt;blockquote&gt;
+  &lt;p&gt;“Yeah It’s on. ”&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;section&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;陆源的博客~~&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;正文&lt;/h2&gt;
+&lt;p&gt;此博客的由来，某天看到廖同学博客，心血来潮，一言不合立即动手来一套，与之前在aws上搭建的wordpress完全是两回事儿。昨天下午花了1个小时，修改各种页面和配置，终于把博客的大概框架折腾了出来，计划每周更新两次到三次。&lt;/p&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;后续&lt;/h2&gt;
+&lt;p&gt;计划每周更新两次
+—&lt;/p&gt;
+
+&lt;p&gt;—— Luyuan 后记于 2016.10.21&lt;/p&gt;
+</description>
+        <pubDate>Wed, 21 Oct 2015 20:45:20 +0800</pubDate>
+        <link>http://hieradata.com/2015/10/21/hi-otc/</link>
+        <guid isPermaLink="true">http://hieradata.com/2015/10/21/hi-otc/</guid>
+        
+        <category>生活</category>
+        
+        
+      </item>
+    
+  </channel>
+</rss>
