@@ -1,10 +1,10 @@
 ---
 layout:     post
-title:      "The GrateWall"
+title:      "The GreatWall"
 subtitle:   "行走于四百年前的城墙"
 date:       2016-10-28 18:35:00
 author:     "Luyuan"
-header-img: "img/post-TheGrateWall-2016.jpg"
+header-img: "img/post-TheGreatWall-2016.jpg"
 catalog: true
 tags:
     - 生活
