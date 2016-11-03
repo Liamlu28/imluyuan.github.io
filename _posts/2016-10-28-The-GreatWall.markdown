@@ -7,7 +7,7 @@ author:     "Luyuan"
 header-img: "img/post-TheGreatWall-2016.jpg"
 catalog: true
 tags:
-    - 生活
+    - 密云北部长城
 ---
 
 > “Are u kidding me? ”
