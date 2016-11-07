@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "2016-11-07-常用工具-PPTP-VPN"
-subtitle:   “I don’t Like Firewall of China”
+title:      "PPTP-VPN"
+subtitle:   "I don’t Like Firewall of China"
 date:       2016-11-07 10:26:58
 author:     "Luyuan"
 header-img: "img/post-pptp.jpg"
@@ -21,19 +21,19 @@ PPTP 是一个快速实现虚拟私人网络的协议，（维基百科第一句
 ### 2.1 Step 1 - PPTP Installation
 
 安装PPTP
-```bash
+```
 rpm -i http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm
 yum -y install pptpd
 ```
 
 编辑 /etc/pptpd.conf 文件并添加如下参数
-```bash
+```
 localip 10.0.0.1
 remoteip 10.0.0.100-200
 ```
 
 编辑 /etc/ppp/chap-secrets 文件并添加用户名和密码
-```bash
+```
 [root@lucian~]# cat /etc/ppp/chap-secrets
 # Secrets for authentication using CHAP
 # client	server	 secret			IP addresses
@@ -61,6 +61,7 @@ pptpd   21270 root    6u  IPv4 13847440      0t0  TCP *:pptp (LISTEN)
 ```
 
 ### 2.3 Step 3 - Setup Forwarding
+
 此步骤非常重要，在PPTP服务商启用IP forwarding功能。它的目的是为了允许Public IP和虚拟IP数据之前的转发，编辑 /etc/sysctl.conf 并添加
 ```
 net.ipv4.ip_forward = 1
@@ -75,7 +76,6 @@ iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE && iptables-save
 * NOTE:需要注意当前服务器Iptables规则设置，如果你使用也是Cloud服务应该在security groups 中允许1723端口允许访问。
 
 ### 2.5 Step 5 - Setup Clients and Connect VPN
-![PPTP MAC 设置](/img/post-pptp-mac.png)
 ![MAC 链接 VPN 服务器](/img/post-pptp-connect.png)
 ![打开 Google](/img/post-are-u-kidding-m.png)
 
