@@ -43,18 +43,18 @@ superuser *	bigpassword	*
 
 ### 2.2 Step 2 - Add DNS servers to /etc/ppp/pptpd-options
 ```
-# Google DNS 
+# Google DNS
 ms-dns 8.8.8.8
 ms-dns 8.8.4.4
 ```
 
 现在你可以启动PPTP服务啦:
-```bash
+```
 service pptpd restart
 ```
 
 验证服务和端口是否正常
-```bash
+```
 [root@lucian~]# lsof -i:1723
 COMMAND   PID USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME
 pptpd   21270 root    6u  IPv4 13847440      0t0  TCP *:pptp (LISTEN)
@@ -62,13 +62,14 @@ pptpd   21270 root    6u  IPv4 13847440      0t0  TCP *:pptp (LISTEN)
 
 ### 2.3 Step 3 - Setup Forwarding
 此步骤非常重要，在PPTP服务商启用IP forwarding功能。它的目的是为了允许Public IP和虚拟IP数据之前的转发，编辑 /etc/sysctl.conf 并添加
-```bash
+```
 net.ipv4.ip_forward = 1
 ```
 为了立即生效，执行sysctl -p
 
 ### 2.4 Step 4 - Create a NAT rule for iptables
-```bash
+
+```
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE && iptables-save
 ```
 * NOTE:需要注意当前服务器Iptables规则设置，如果你使用也是Cloud服务应该在security groups 中允许1723端口允许访问。
