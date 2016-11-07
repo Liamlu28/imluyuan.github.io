@@ -21,18 +21,21 @@ PPTP 是一个快速实现虚拟私人网络的协议，（维基百科第一句
 ### 2.1 Step 1 - PPTP Installation
 
 安装PPTP
+
 ```
 rpm -i http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm
 yum -y install pptpd
 ```
 
 编辑 /etc/pptpd.conf 文件并添加如下参数
+
 ```
 localip 10.0.0.1
 remoteip 10.0.0.100-200
 ```
 
 编辑 /etc/ppp/chap-secrets 文件并添加用户名和密码
+
 ```
 [root@lucian~]# cat /etc/ppp/chap-secrets
 # Secrets for authentication using CHAP
@@ -42,6 +45,7 @@ superuser *	bigpassword	*
 * Note:注意适应空格键为间隔，client为用户名，server 可以设置未指定服务名，但是在这里建议设置为”，secret建议设置强度较大的密码，IP addrsses 建议设置成*，如果有安全因素方面的考虑，可设置成只允许某IP来访问。
 
 ### 2.2 Step 2 - Add DNS servers to /etc/ppp/pptpd-options
+
 ```
 # Google DNS
 ms-dns 8.8.8.8
@@ -49,11 +53,13 @@ ms-dns 8.8.4.4
 ```
 
 现在你可以启动PPTP服务啦:
+
 ```
 service pptpd restart
 ```
 
 验证服务和端口是否正常
+
 ```
 [root@lucian~]# lsof -i:1723
 COMMAND   PID USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME
@@ -63,6 +69,7 @@ pptpd   21270 root    6u  IPv4 13847440      0t0  TCP *:pptp (LISTEN)
 ### 2.3 Step 3 - Setup Forwarding
 
 此步骤非常重要，在PPTP服务商启用IP forwarding功能。它的目的是为了允许Public IP和虚拟IP数据之前的转发，编辑 /etc/sysctl.conf 并添加
+
 ```
 net.ipv4.ip_forward = 1
 ```

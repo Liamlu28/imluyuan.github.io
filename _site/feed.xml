@@ -5,48 +5,52 @@
     <description>爱笑的逗比</description>
     <link>http://hieradata.com/</link>
     <atom:link href="http://hieradata.com/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Tue, 08 Nov 2016 00:24:09 +0800</pubDate>
-    <lastBuildDate>Tue, 08 Nov 2016 00:24:09 +0800</lastBuildDate>
+    <pubDate>Tue, 08 Nov 2016 00:36:18 +0800</pubDate>
+    <lastBuildDate>Tue, 08 Nov 2016 00:36:18 +0800</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
-        <title>2016-11-07-常用工具-PPTP-VPN</title>
+        <title>PPTP-VPN</title>
         <description>&lt;blockquote&gt;
   &lt;p&gt;“一枝红杏出墙外！”&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;hr /&gt;
 &lt;h2 id=&quot;section&quot;&gt;1.前言&lt;/h2&gt;
 &lt;p&gt;周末雾霾环绕北京城两天，从未离他而去，所以宅在狗屋继续写 Book。The Openstack-ansible这一章节，但很不巧被“某墙”消耗了半天时间，佛挡杀佛，墙挡拆墙？不，我要越墙。既然越墙，那就使用工具，工具种类很多。目前VPN隧道协议有4种：点到点隧道协议PPTP、第二层隧道协议L2TP、网络层隧道协议IPSec以及SOCKS v5。我们这里只介绍点到点隧道协议。英文名叫：Point-to-Point Tunneling Protocol，子（PPTP）。&lt;/p&gt;
 
 &lt;h2 id=&quot;section-1&quot;&gt;2.正文&lt;/h2&gt;
 &lt;p&gt;PPTP 是一个快速实现虚拟私人网络的协议，（维基百科第一句话：因为它存在许多问题，所以算是一个快要过时的一种技术）。PPTP使用基于TCP和GRE隧道运营封装PPP数据包来控制通道，可以对封装PPP桢中的负载数据进行加密或压缩，如上即是它的原理。本次搭建使用AWS EM2作为载体。&lt;/p&gt;
+
 &lt;h3 id=&quot;step-1---pptp-installation&quot;&gt;2.1 Step 1 - PPTP Installation&lt;/h3&gt;
 
 &lt;p&gt;安装PPTP&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rpm -i http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rpm -i http://poptop.sourceforge.net/yum/stable/rhel6/pptp-release-current.noarch.rpm
 yum -y install pptpd
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;编辑 /etc/pptpd.conf 文件并添加如下参数&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;localip 10.0.0.1
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;localip 10.0.0.1
 remoteip 10.0.0.100-200
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;编辑 /etc/ppp/chap-secrets 文件并添加用户名和密码&lt;/p&gt;
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;[root@lucian~]# &lt;/span&gt;cat /etc/ppp/chap-secrets
-&lt;span class=&quot;c&quot;&gt;# Secrets for authentication using CHAP&lt;/span&gt;
-&lt;span class=&quot;c&quot;&gt;# client	server	 secret			IP addresses&lt;/span&gt;
-superuser &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;	bigpassword	&lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@lucian~]# cat /etc/ppp/chap-secrets
+# Secrets for authentication using CHAP
+# client	server	 secret			IP addresses
+superuser *	bigpassword	*
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;ul&gt;
-  &lt;li&gt;Note:注意适应空格键为间隔，client为用户名，server 可以设置未指定服务名，但是在这里建议设置为“&lt;em&gt;”，secret建议设置强度较大的密码，IP addrsses 建议设置成&lt;/em&gt;，如果有安全因素方面的考虑，可设置成只允许某IP来访问。&lt;/li&gt;
+  &lt;li&gt;Note:注意适应空格键为间隔，client为用户名，server 可以设置未指定服务名，但是在这里建议设置为”，secret建议设置强度较大的密码，IP addrsses 建议设置成*，如果有安全因素方面的考虑，可设置成只允许某IP来访问。&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;step-2---add-dns-servers-to-etcppppptpd-options&quot;&gt;2.2 Step 2 - Add DNS servers to /etc/ppp/pptpd-options&lt;/h3&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Google DNS
 ms-dns 8.8.8.8
 ms-dns 8.8.4.4
@@ -54,11 +58,13 @@ ms-dns 8.8.4.4
 &lt;/div&gt;
 
 &lt;p&gt;现在你可以启动PPTP服务啦:&lt;/p&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service pptpd restart
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;验证服务和端口是否正常&lt;/p&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[root@lucian~]# lsof -i:1723
 COMMAND   PID USER   FD   TYPE   DEVICE SIZE/OFF NODE NAME
 pptpd   21270 root    6u  IPv4 13847440      0t0  TCP *:pptp (LISTEN)
@@ -66,7 +72,9 @@ pptpd   21270 root    6u  IPv4 13847440      0t0  TCP *:pptp (LISTEN)
 &lt;/div&gt;
 
 &lt;h3 id=&quot;step-3---setup-forwarding&quot;&gt;2.3 Step 3 - Setup Forwarding&lt;/h3&gt;
+
 &lt;p&gt;此步骤非常重要，在PPTP服务商启用IP forwarding功能。它的目的是为了允许Public IP和虚拟IP数据之前的转发，编辑 /etc/sysctl.conf 并添加&lt;/p&gt;
+
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;net.ipv4.ip_forward = 1
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -82,16 +90,14 @@ pptpd   21270 root    6u  IPv4 13847440      0t0  TCP *:pptp (LISTEN)
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;step-5---setup-clients-and-connect-vpn&quot;&gt;2.5 Step 5 - Setup Clients and Connect VPN&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/img/post-pptp-mac.png&quot; alt=&quot;PPTP MAC 设置&quot; /&gt;
-&lt;img src=&quot;/img/post-pptp-connect.png&quot; alt=&quot;MAC 链接 VPN 服务器&quot; /&gt;
+&lt;p&gt;&lt;img src=&quot;/img/post-pptp-connect.png&quot; alt=&quot;MAC 链接 VPN 服务器&quot; /&gt;
 &lt;img src=&quot;/img/post-are-u-kidding-m.png&quot; alt=&quot;打开 Google&quot; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;section-2&quot;&gt;3 总结&lt;/h2&gt;
 &lt;p&gt;我们通过在AWS上搭建一套VPN服务，只要你当前设备支持PPTP客户端都可以链接到自己搭建的服务器当中。&lt;/p&gt;
 
 &lt;h2 id=&quot;section-3&quot;&gt;后续&lt;/h2&gt;
-&lt;p&gt;计划每周更新两次
-—&lt;/p&gt;
+&lt;p&gt;计划每周更新两次&lt;/p&gt;
 
 &lt;p&gt;—— Luyuan 后记于 2016.11.07&lt;/p&gt;
 </description>
