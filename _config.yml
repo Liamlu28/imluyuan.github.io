@@ -1,10 +1,10 @@
 # Site settings
 title: To be or not to be
-SEOTitle:  陆源的博客| Luyuan Blog
+SEOTitle:  陆小斯的博客| Luyuan Blog
 header-img: img/home-bg.jpg
 email: hieradata@gmail.com
-description: "爱笑的逗比"
-keyword: "luyuan,陆小斯"
+description: "About Linux、DevOps、Puppet、Openstack、Hiking、户外、长城"
+keyword: "luyuan, 陆小斯, 陆源, 小斯, 陆小斯的博客, 个人网站, puppet, 长城, openstack"
 url: "http://hieradata.com"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
 
