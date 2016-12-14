@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "如何利用Google地球-制作GPS路线"
-subtitle:   "户外路线制作”
+subtitle:   "户外路线制作"
 date:       2016-12-14 23:38:58
 author:     "Luyuan"
 header-img: "img/map/WechatIMG25.jpeg"
@@ -10,6 +10,7 @@ tags:
     - 工具
 ---
 
+---
 # 前言
 2005年那时候还在上高中，当时的Google不需要某工具可以直接访问，一次搜索地图的过程中找到一个Google地图的软件，兴奋不已。果然不出意料，用当时的卫星地图找到我们家的位置。就此对它痴迷不已，IPAD、SJ、Compute必装，最近几年使用它来规划户外路线，所以就此分享给各位户外同学。
 
@@ -68,5 +69,6 @@ tags:
 显示已经做好的轨迹
 ![24](/img/map/WechatIMG24.jpeg)
 
+---
 
 —— Luyuan 后记于 2016.12.14
