@@ -8,6 +8,7 @@ header-img: "img/map/WechatIMG25.jpeg"
 catalog: true
 tags:
     - 工具
+---
 
 # 前言
 2005年那时候还在上高中，当时的Google不需要某工具可以直接访问，一次搜索地图的过程中找到一个Google地图的软件，兴奋不已。果然不出意料，用当时的卫星地图找到我们家的位置。就此对它痴迷不已，IPAD、SJ、Compute必装，最近几年使用它来规划户外路线，所以就此分享给各位户外同学。
