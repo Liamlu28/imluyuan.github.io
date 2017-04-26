@@ -2,7 +2,7 @@
 layout:     post
 title:      “Facter”
 subtitle:   “Puppet4”
-date:       2016-02-17 16:25:11
+date:       2017-02-17 16:25:11
 author:     "Luyuan"
 header-img: "img/puppet4/puppet-facter.jpg"
 catalog: true
