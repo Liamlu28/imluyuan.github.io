@@ -4,7 +4,7 @@ title:      "包管理工具setuptools"
 subtitle:   "setuptools"
 date:       2017-06-28 00:00:00
 author:     "Luyuan"
-header-img: "img/python/python.jepg"
+header-img: "img/python/python.jpeg"
 catalog: true
 tags:
     - Python
