@@ -2,7 +2,7 @@
 layout:     post
 title:      "写点啥？"
 subtitle:   "make trouble"
-date:       2017-06-28 00:00:00
+date:       2019-10-31 00:00:00
 author:     "Luyuan"
 header-img: "img/thanos/thanos.jpeg"
 catalog: true
