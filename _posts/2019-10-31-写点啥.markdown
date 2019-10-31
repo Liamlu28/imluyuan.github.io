@@ -1,0 +1,18 @@
+---
+layout:     post
+title:      "写点啥？"
+subtitle:   "make trouble"
+date:       2017-06-28 00:00:00
+author:     "Luyuan"
+header-img: "img/thanos/thanos.jpeg"
+catalog: true
+tags:
+    - None
+---
+
+
+## 1前言
+本来想写点文章，VIM 后脑子一篇空白，那就凑个commit的吧.....
+
+
+—— Luyuan 后记于 2019.10.31
