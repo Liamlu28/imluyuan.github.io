@@ -1,0 +1,23 @@
+---
+layout:     post
+title:      "系列文章计划？"
+subtitle:   "Plan"
+date:       2020-03-10 00:00:00
+author:     "Luyuan"
+header-img: "img/thanos/thanos.jpeg"
+catalog: true
+tags:
+    - None
+---
+
+
+## 1前言
+自一月疫情后，一直在家remote，这是学生时代后最长一段时间陪伴着家人。今日最近做的一些事情，一直没有总结，想通过系列文章的方式推送至长久没有更新的博客。主要关于Openstack 周边生态系统为主题，涉及如下：
+1）Prometheus 系列：支持openstack 监控、ceph 监控、虚机监控、硬件监控、基础监控。
+2）从13年第一次接触Puppet 代码，后来的到Ruby，现在重新接触到一种新的部署工具Kolla ansible，一种跑在容器面的Openstack 集群。
+3）Openstack CI/CD 系列，15年入职xxstack时老余那套CI 系统让我眼前一亮，从代码提交到最后的代码入库流程感到新鲜，至今有机会做 Stein 版本将其引入项目。
+4）在日常处理OPS工作时，由于Openstack 本身系统复杂性，排查问题对系统深入了解要求比较高，这时引入Openstack 根因分析的组件，解决了一些日常运维无需再通过日志查找debug 问题。
+5) CEPH 一直是软肋后来有机会完全接触到Ceph Ops，从中也学习到不少关于分布式存储相关的盖帘。有空我就会更新对应系列文章。加油吧
+
+
+—— Luyuan 后记于 2020.03.03
