@@ -1,0 +1,53 @@
+---
+layout:     post
+title:      "PIP 离线包制作方法"
+subtitle:   "Plan"
+date:       2020-03-10 00:00:00
+author:     "Luyuan"
+header-img: "img/thanos/thanos.jpeg"
+catalog: true
+tags:
+    - None
+---
+
+
+## 1前言
+环境Linux CentOS 7.4
+```bash
+Kolla 项目的bootstraps 步骤中含有连接外网的步骤，其中包含PIP、YUM 操作，对于没有外网环境需要包含本地Yum源和本地PIP源，这其中PIP源制作我们选择了将已有环境已安装PIP 列表中包下载到本地，当使用无外网的环境下，直接安装即可。
+
+#0.设置阿里PIP
+
+mkdir  ~/.pip/ -p
+
+
+vim ~/.pip/pip.conf
+
+[global]
+trusted-host =  mirrors.aliyun.com
+index-url = https://mirrors.aliyun.com/pypi/simple
+
+
+
+
+#1.创建一个存放离线repo的目录
+mkdir /root/666stack_pip_repo
+
+#2.拷贝一个pip列表文件
+cp 666stack_piplist.txt /root/pip_repo/666stack_piplist.txt
+
+
+#3.下载离线软件包
+
+pip download -d /root/pip_repo/ -r  666stack_piplist.txt
+
+#4.在离线环境下安全软件包
+
+
+pip install --no-index --find-links=/root/pip_repo/ -r list
+
+
+
+```
+
+—— Luyuan 后记于 2020.03.03
